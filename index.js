@@ -79,6 +79,12 @@ Yeelight.discover = function(port, callback){
       yeelight.on('connect', function(){
         callback.call(discover, this, response);
       });
+      
+      yeelight.on('disconnect', function(){
+        var old = yeelights.indexOf(address);
+        yeelights.splice(old, 1);
+      });
+      
     };
     
   });
